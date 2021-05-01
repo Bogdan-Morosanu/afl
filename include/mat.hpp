@@ -68,7 +68,7 @@ enum class EqSysType { UPPER_TRIANG, LOWER_TRIANG, GENERAL };
 
 /// @brief core Matrix class for linear algebra operations,
 /// class has non-virtual dtor, so do not inherit from it.
-template <typename ElType, int rows, int cols> class Mat {
+template <typename ElType, int rows, int cols> class Mat final {
 public:
   static_assert(rows > 0 && cols > 0, "matrix must have positive dimensions!");
 
@@ -85,9 +85,6 @@ public:
   ///            columns of matrix one at a time.
   inline Mat(const std::initializer_list<ElType> &ls,
              IterationDir dir = IterationDir::COLS);
-
-  /// @brief non-virtual dtor. class not meant to be inherited from!
-  ~Mat(){};
 
   /// TODO template operator() on iteration dir parameter
   /// and specialise, also treat the rows == 1 or cols == 1

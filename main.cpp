@@ -1,4 +1,4 @@
-#include <cblas.h>
+#include <blas.h>
 #include <cstring>
 #include <iomanip>
 #include <iostream>
